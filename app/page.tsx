@@ -39,10 +39,10 @@ const App = () => {
   const profileImg = "/ashan-profile.png";
 
   // Refs for scrolling - create refs outside useMemo to follow React rules
-  const homeRef = useRef(null);
-  const projectsRef = useRef(null);
-  const aboutRef = useRef(null);
-  const contactRef = useRef(null);
+  const homeRef = useRef<HTMLElement>(null);
+  const projectsRef = useRef<HTMLElement>(null);
+  const aboutRef = useRef<HTMLElement>(null);
+  const contactRef = useRef<HTMLElement>(null);
   
   const sectionRefs = useMemo(() => ({
     HOME: homeRef,
@@ -64,9 +64,7 @@ const App = () => {
 
   const scrollToSection = (tab: string) => {
     const ref = sectionRefs[tab as keyof typeof sectionRefs];
-    if (ref.current instanceof HTMLElement) {
-      ref.current.scrollIntoView({ behavior: 'smooth' });
-    }
+    ref?.current?.scrollIntoView({ behavior: 'smooth' });
     setActiveTab(tab);
   };
 
