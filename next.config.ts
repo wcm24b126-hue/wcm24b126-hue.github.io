@@ -1,7 +1,11 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
+  output: 'export', // Crucial for GitHub Pages
   images: {
+    unoptimized: true, // Required when using 'output: export'
+    dangerouslyAllowSVG: true,
+    contentSecurityPolicy: "default-src 'self'; script-src 'none'; sandbox;",
     remotePatterns: [
       {
         protocol: 'https',
@@ -16,8 +20,6 @@ const nextConfig: NextConfig = {
         hostname: 'images.unsplash.com',
       },
     ],
-    dangerouslyAllowSVG: true,
-    contentSecurityPolicy: "default-src 'self'; script-src 'none'; sandbox;",
   },
 };
 
