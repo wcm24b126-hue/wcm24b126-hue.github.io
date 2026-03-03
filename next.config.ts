@@ -1,9 +1,10 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  output: 'export', // Crucial for GitHub Pages
+  output: 'export',
+  distDir: 'docs', // Output to docs folder instead of out
   images: {
-    unoptimized: true, // Required when using 'output: export'
+    unoptimized: true,
     dangerouslyAllowSVG: true,
     contentSecurityPolicy: "default-src 'self'; script-src 'none'; sandbox;",
     remotePatterns: [
